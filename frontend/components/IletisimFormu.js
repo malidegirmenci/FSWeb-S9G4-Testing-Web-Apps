@@ -69,12 +69,13 @@ const IletisimFormu = () => {
   };
 
   return (
-    <div className="App">
-      <h1>İletişim Formu</h1>
-      <form onSubmit={handleSubmit}>
+    <div data-testid="app" className="App">
+      <h1 data-testid="header">İletişim Formu</h1>
+      <form data-testid="login-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="ad">Ad*</label>
           <input
+            data-testid="name"
             onChange={handleChange}
             name="ad"
             value={form.ad}
@@ -87,6 +88,7 @@ const IletisimFormu = () => {
         <div>
           <label htmlFor="soyad">Soyad*</label>
           <input
+            data-testid="surname"
             onChange={handleChange}
             id="soyad"
             name="soyad"
@@ -99,6 +101,7 @@ const IletisimFormu = () => {
         <div>
           <label htmlFor="email">Email*</label>
           <input
+          data-testid="email"
             onChange={handleChange}
             id="email"
             name="email"
@@ -108,9 +111,10 @@ const IletisimFormu = () => {
           {(errors.email) && <p data-testid="error">Hata: {errors.email}</p>}
         </div>
 
-        <div>
+        <div data-testid="message-area">
           <label htmlFor="mesaj">Mesaj</label>
           <input
+            data-testid="message"
             onChange={handleChange}
             name="mesaj"
             id="mesaj"
@@ -119,9 +123,9 @@ const IletisimFormu = () => {
           {(errors.mesaj) && <p data-testid="error">Error: {errors.mesaj}</p>}
         </div>
 
-        {displayData && <Goruntule form={form}/>}
+        {displayData && <Goruntule form={form} />}
 
-        <button>Gönder</button>
+        <button data-testid="submit">Gönder</button>
       </form>
     </div>
   );
